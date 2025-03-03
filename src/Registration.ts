@@ -152,7 +152,7 @@ abstract class BatchRegistrationPolicy {
   abstract register(): Promise<void>;
 }
 
-class AlmanacApiRegistrationPolicy extends AgentRegistrationPolicy {
+export class AlmanacApiRegistrationPolicy extends AgentRegistrationPolicy {
   private identity: Identity;
   private almanacApi: string;
   private maxRetries: number;
@@ -187,7 +187,7 @@ class AlmanacApiRegistrationPolicy extends AgentRegistrationPolicy {
   }
 }
 
-class LedgerBasedRegistrationPolicy extends AgentRegistrationPolicy {
+export class LedgerBasedRegistrationPolicy extends AgentRegistrationPolicy {
   private identity: Identity;
   private ledger: any;
   private wallet: any;
@@ -279,7 +279,7 @@ class LedgerBasedRegistrationPolicy extends AgentRegistrationPolicy {
   }
 }
 
-class BatchAlmanacApiRegistrationPolicy extends BatchRegistrationPolicy {
+export class BatchAlmanacApiRegistrationPolicy extends BatchRegistrationPolicy {
   private almanacApi: string;
   private attestations: AgentRegistrationAttestation[];
   private maxRetries: number;
@@ -318,7 +318,7 @@ class BatchAlmanacApiRegistrationPolicy extends BatchRegistrationPolicy {
   }
 }
 
-class BatchLedgerRegistrationPolicy extends BatchRegistrationPolicy {
+export class BatchLedgerRegistrationPolicy extends BatchRegistrationPolicy {
   private ledger: any;
   private wallet: any;
   private almanacContract: AlmanacContract;
@@ -395,7 +395,7 @@ class BatchLedgerRegistrationPolicy extends BatchRegistrationPolicy {
   }
 }
 
-class DefaultRegistrationPolicy extends AgentRegistrationPolicy {
+export class DefaultRegistrationPolicy extends AgentRegistrationPolicy {
   private apiPolicy: AlmanacApiRegistrationPolicy;
   private ledgerPolicy?: LedgerBasedRegistrationPolicy;
 
@@ -442,7 +442,7 @@ class DefaultRegistrationPolicy extends AgentRegistrationPolicy {
   }
 }
 
-class DefaultBatchRegistrationPolicy extends BatchRegistrationPolicy {
+export class DefaultBatchRegistrationPolicy extends BatchRegistrationPolicy {
   private apiPolicy: BatchAlmanacApiRegistrationPolicy;
   private ledgerPolicy?: BatchLedgerRegistrationPolicy;
 
